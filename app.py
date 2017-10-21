@@ -1,7 +1,7 @@
 import tornado.ioloop
 import tornado.web
 
-from handlers import BlockHandler, NonBlockHandler, DefaultHandler
+from handlers import BlockHandler, NonBlockHandler, DefaultHandler, RedisHandler
 
 import logging
 LOG_FORMAT = ('%(levelname) -10s %(asctime)s %(name) -30s %(funcName) '
@@ -13,7 +13,8 @@ def make_app():
     return tornado.web.Application([
         (r"/block-request", BlockHandler),
         (r"/non-block-request", NonBlockHandler),
-        (r"/normal-request", DefaultHandler)
+        (r"/normal-request", DefaultHandler),
+        (r"/redis-request", RedisHandler),
     ], debug=True)
 
 if __name__ == "__main__":

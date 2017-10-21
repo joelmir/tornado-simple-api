@@ -1,0 +1,14 @@
+[run]
+omit =
+    tests/*
+    env*
+    venv*
+    app.py
+    fabfile.py
+    log_manager.py
+    parameter.py
+    bin/*
+    lib/*
+
+[report]
+precision = 2

@@ -23,6 +23,7 @@ print(' [*] Waiting for messages. To exit press CTRL+C')
 
 def callback(ch, method, properties, body):
     print(" [x] %r" % body.decode('utf-8'))
+    channel.basic_ack(method.delivery_tag)
 
 channel.basic_consume(callback,
                       queue='my_queue',
